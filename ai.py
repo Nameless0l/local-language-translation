@@ -17,7 +17,7 @@ target_characters = set()
 with open('dataset/eng-french.txt', 'r', encoding='utf-8') as f:
     rows = f.read().split('\n')
     
-for row in rows[:20000]:
+for row in rows[:30000]:
     if '\t' in row:
         input_text, target_text = row.split('\t')
         target_text = '\t' + target_text + '\n'
@@ -86,7 +86,7 @@ model = Model([encoder_inputs, decoder_inputs], decoder_outputs)
 
 # Entraîner le modèle
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
-history= model.fit([encoder_input_data, decoder_input_data],decoder_target_data, batch_size=64, epochs=2, validation_split=0.2)
+history= model.fit([encoder_input_data, decoder_input_data],decoder_target_data, batch_size=64, epochs=200, validation_split=0.2)
 
 model.save('s2s/translation_model.h5')
 model.summary()
