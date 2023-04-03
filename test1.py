@@ -4,10 +4,10 @@ import numpy as np
 import pickle
 
 # Charger le modèle et les caractères d'entrée/sortie
-model = load_model('translation_model.h5')
-with open('input_characters.pkl', 'rb') as f:
+model = load_model('s2s/translation_model.h5')
+with open('s2s/input_characters.pkl', 'rb') as f:
     input_characters = pickle.load(f)
-with open('target_characters.pkl', 'rb') as f:
+with open('s2s/target_characters.pkl', 'rb') as f:
     target_characters = pickle.load(f)
 
 max_encoder_seq_length ,max_decoder_seq_length ,num_decoder_tokens , max_decoder_seq_length=16 ,59 ,67, 59
